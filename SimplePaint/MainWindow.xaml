@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SimplePaint"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" WindowStyle="None" WindowState="Maximized" KeyDown="Window_KeyDown">
+        Title="MainWindow" Height="450" Width="800" WindowStyle="None" WindowState="Maximized">
     <Window.DataContext>
         <local:MainViewModel/>
     </Window.DataContext>
@@ -13,17 +13,17 @@
         <KeyBinding Key="C" Command="{Binding DeleteStrokesCmd}"/>
         <KeyBinding Key="H" Command="{Binding ToggleMenuVisibilityCmd}"/>
         <KeyBinding Key="Esc" Command="{Binding CloseAppCmd}"/>
-        <KeyBinding Key="X" Command="{Binding CloseAppCmd}"/>
     </Window.InputBindings>
     <DockPanel>
         <Menu DockPanel.Dock="Top" Visibility="{Binding MenuVisibility}">
             <MenuItem Header="メニュー(_M)">
                 <MenuItem Header="メニューバーを隠す（Hキーで再表示）" Command="{Binding ToggleMenuVisibilityCmd}"/>
                 <MenuItem Header="描画をクリア(_C)" Command="{Binding DeleteStrokesCmd}"/>
+                <MenuItem Header="鉛筆・マーカー切り替え(_S)" Command="{Binding ToggleHighlighterCmd}"/>
                 <MenuItem Header="終了(_X)" Command="{Binding CloseAppCmd}"/>
             </MenuItem>
         </Menu>
-        <InkCanvas Name="Canvas" Strokes="{Binding Strokes}">
+        <InkCanvas Name="Canvas" Strokes="{Binding Strokes}" Cursor="No" DefaultDrawingAttributes="{Binding MyDrawingAttributes}">
             <InkCanvas.InputBindings>
                 <KeyBinding Key="Esc" Command="{Binding CloseAppCmd}"/>
             </InkCanvas.InputBindings>
