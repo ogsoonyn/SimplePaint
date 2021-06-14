@@ -71,7 +71,7 @@ namespace SimplePaint
                     _toggleMenuVisibilityCmd = new RelayCommand(
                         param =>
                         {
-                            MenuVisibility = (MenuVisibility == Visibility.Visible) ? Visibility.Hidden : Visibility.Visible;
+                            MenuVisibility = (MenuVisibility == Visibility.Visible) ? Visibility.Collapsed : Visibility.Visible;
                         });
                 }
                 return _toggleMenuVisibilityCmd;
